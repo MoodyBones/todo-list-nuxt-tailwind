@@ -14,9 +14,15 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
   },
 
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+    config: {},
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -34,6 +40,25 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+
+    // https://composition-api.nuxtjs.org/getting-started/setup
+    '@nuxtjs/composition-api/module',
+
+    [
+      '@nuxtjs/pwa',
+      {
+        icon: {
+          source: '~/dist/favicon.svg',
+        },
+        meta: {
+          name: `MicroTask - Moody's Nuxt, TailwindCSS, Composition API playground`,
+          theme_color: '#5a67d8',
+        },
+        manifest: {
+          name: `MicroTask - Moody's Nuxt, TailwindCSS, Composition API playground`,
+        },
+      },
+    ],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
